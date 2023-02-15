@@ -2,8 +2,7 @@ import axios from 'axios';
 
 class NotesApi {
   endpoint = 'https://us-central1-take-home-6fb23.cloudfunctions.net/api';
-  // username = 'ENTER_USER_NAME_HERE';
-  username = 'robrichardson13';
+  username = 'ENTER_USER_NAME_HERE';
   baseUrl = `${this.endpoint}/${this.username}`;
 
   async listNotes() {
