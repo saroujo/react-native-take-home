@@ -44,7 +44,7 @@ As a user I want to be able to see my list of notes, add new notes, and update a
 - Make use of [React Hooks](https://reactjs.org/docs/hooks-intro.html) for state management
 - Demonstrate knowledge of component modularization
 - Create components as you feel is best suited for your solution
-- Try to avoid any build and linting issues
+- Try to avoid any build and linting issues (you can run `yarn run lint` to verify)
 
 ### Bonus:
 

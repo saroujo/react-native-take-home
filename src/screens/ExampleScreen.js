@@ -1,5 +1,4 @@
-import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import {
   Title1,
   Title2,
@@ -14,7 +13,7 @@ import {
   withTheme,
 } from 'react-native-ios-kit';
 
-const ExampleScreen = ({theme, route, navigation}) => {
+const ExampleScreen = ({ theme, route, navigation }) => {
   return (
     <View>
       <Title1>Title 1</Title1>

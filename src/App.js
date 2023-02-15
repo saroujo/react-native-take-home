@@ -1,7 +1,6 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ThemeProvider} from 'react-native-ios-kit';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ThemeProvider } from 'react-native-ios-kit';
 import HomeScreen from './screens/HomeScreen';
 import ExampleScreen from './screens/ExampleScreen';
 

@@ -1,10 +1,9 @@
-import React from 'react';
-import {Title1, withTheme, Button} from 'react-native-ios-kit';
-import {View, StyleSheet} from 'react-native';
+import { Title1, withTheme, Button } from 'react-native-ios-kit';
+import { View, StyleSheet } from 'react-native';
 import useNotesQuery from '../hooks/useNotesQuery';
 
-const HomeScreen = ({theme, route, navigation}) => {
-  const {notesListLoading, notesList} = useNotesQuery();
+const HomeScreen = ({ theme, route, navigation }) => {
+  const { notesListLoading, notesList } = useNotesQuery();
 
   // Example to push a new screen
   const onButtonPress = () => {
