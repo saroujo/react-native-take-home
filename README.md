@@ -41,6 +41,7 @@ As a user I want to be able to see my list of notes, add new notes, and update a
 ### Technical Notes:
 
 - Download the supplied [Postman Collection](MobileTakeHome.postman_collection.json) and import to test the endpoint routes.
+- Download the supplied [Postman Environment](Production.postman_environment.json) and import to test the endpoint routes.
 - Make use of [React Hooks](https://reactjs.org/docs/hooks-intro.html) for state management
 - Demonstrate knowledge of component modularization
 - Create components as you feel is best suited for your solution
