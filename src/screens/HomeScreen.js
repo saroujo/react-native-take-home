@@ -14,7 +14,7 @@ const HomeScreen = ({ theme, route, navigation }) => {
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       // The screen is focused
-      console.log('Query notes:::');
+      console.log('Query notes focus:::');
       queryNotes();
     });
     // Return the function to unsubscribe from the event so it gets removed on unmount
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 44,
     paddingHorizontal: 18,
+    backgroundColor: "white"
   },
   header: {
     justifyContent: 'flex-start',

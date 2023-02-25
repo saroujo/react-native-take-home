@@ -15,7 +15,7 @@ const AddNote = ({ theme, route, navigation }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState();
   const { createNote, note, getNote, updateNote, deleteNote } = useNoteQuery();
-  console.log('NOTE::', note);
+  // console.log('NOTE::', note);
 
   useEffect(() => {
     const noteId = route.params?.noteId;
@@ -33,11 +33,11 @@ const AddNote = ({ theme, route, navigation }) => {
   }, [note]);
 
   useLayoutEffect(() => {
-    const onPress = () => {
+    const onPress = async () => {
       if (!note?.id) {
-        createNote({ title, body });
+        await createNote({ title, body });
       } else {
-        updateNote(note?.id, { title, body });
+        await updateNote(note?.id, { title, body });
       }
       navigation?.goBack();
     };
@@ -69,8 +69,8 @@ const AddNote = ({ theme, route, navigation }) => {
             <View style={styles.btnContainer}>
               <Button
                 rounded
-                onPress={() => {
-                  deleteNote(note?.id);
+                onPress={async () => {
+                  await deleteNote(note?.id);
                   navigation?.goBack();
                 }}>
                 Delete Note
@@ -86,6 +86,7 @@ const AddNote = ({ theme, route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white"
   },
   inner: {
     flex: 1,
