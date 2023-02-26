@@ -1,5 +1,5 @@
 import { StyleSheet, View, Pressable } from 'react-native';
-import { Headline, Body, Footnote } from 'react-native-ios-kit';
+import { Headline, Subhead, Caption1 } from 'react-native-ios-kit';
 
 const NotesCard = ({ note, style, onPress }) => {
   return (
@@ -11,8 +11,8 @@ const NotesCard = ({ note, style, onPress }) => {
       ]}>
       <View style={{ flex: 1, justifyContent: 'space-between' }}>
         <Headline>{note?.title}</Headline>
-        <Body>{note?.body}</Body>
-        <Footnote>{note?.date}</Footnote>
+        <Subhead>{note?.body}</Subhead>
+        <Caption1>{note?.date}</Caption1>
       </View>
     </Pressable>
   );

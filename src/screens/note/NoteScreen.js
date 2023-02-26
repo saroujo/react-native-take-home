@@ -57,12 +57,14 @@ const AddNote = ({ theme, route, navigation }) => {
         <View style={styles.inner}>
           <View style={[styles.inputContainer]}>
             <NoteTextField
+              key="title"
               placeholder={'Note Title'}
               value={title}
               onValueChange={setTitle}
               inputStyle={styles.titleStyle}
             />
             <NoteTextField
+              key="body"
               placeholder={'Start Typing'}
               value={body}
               onValueChange={setBody}
