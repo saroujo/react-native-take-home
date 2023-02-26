@@ -3,6 +3,7 @@ import {
     View,
 } from 'react-native';
 import { Button } from 'react-native-ios-kit';
+import { buttonInvertedTextColor, buttonLightColor } from '../../styles/themes';
 import styles from './styles';
 
 const DeleteButton = ({ onPress }) => {
@@ -13,10 +14,9 @@ const DeleteButton = ({ onPress }) => {
             inverted
             theme={{
                 ...theme,
-                primaryColor: 'rgba(10, 132, 255, 0.15)'
+                primaryColor: buttonLightColor
             }}
-            style={{ textColor: '0A84FF' }}
-            color='rgb(10, 132, 255)'
+            color={buttonInvertedTextColor}
             onPress={onPress}>
             Delete Note
         </Button>
