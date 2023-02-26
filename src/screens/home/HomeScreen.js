@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import ListHeader from './ListHeader';
 import styles from './styles';
 import EmptyComponent from './EmptyComponent';
+import SkeletonPage from './SkeletonPage';
 import RenderItem from './RenderItem';
 
 const HomeScreen = ({ theme, route, navigation }) => {
@@ -32,7 +33,7 @@ const HomeScreen = ({ theme, route, navigation }) => {
       <FlatList
         ListHeaderComponent={<ListHeader />}
         ListEmptyComponent={
-          <EmptyComponent />
+          notesListLoading ? <SkeletonPage /> : <EmptyComponent />
         }
         data={notesList}
         onRefresh={queryNotes}

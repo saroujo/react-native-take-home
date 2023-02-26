@@ -21,14 +21,10 @@ const styles = StyleSheet.create({
     },
     titleStyle: {
       fontSize: 22,
-      leading: 28,
-      tracking: 16,
       fontWeight: '400',
     },
     bodyStyle: {
       fontSize: 15,
-      leading: 20,
-      tracking: -16,
       fontWeight: '400',
     }
   

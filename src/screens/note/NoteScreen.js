@@ -61,7 +61,7 @@ const AddNote = ({ theme, route, navigation }) => {
   const onDelete = useCallback(async () => {
     await deleteNote(note?.id);
     navigation?.goBack();
-  }, [deleteNote, navigation]);
+  }, [deleteNote, navigation, note]);
 
   return (
     <KeyboardAvoidingView
@@ -73,14 +73,14 @@ const AddNote = ({ theme, route, navigation }) => {
           <View style={[styles.inputContainer]}>
             {inFlight && <Spinner animating={inFlight} />}
             <NoteTextField
-              key="title"
+              // key="title"
               placeholder={'Note Title'}
               value={title}
               onValueChange={setTitle}
               inputStyle={styles.titleStyle}
             />
             <NoteTextField
-              key="body"
+              // key="body"
               placeholder={'Start Typing'}
               value={body}
               onValueChange={setBody}

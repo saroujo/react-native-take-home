@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import NotesCard from '../../components/notes-card';
+import { NotesCard } from '../../components/notes-card';
 import { Screens } from '../../navigation/constants';
 
 const RenderItem = ({ item }) => {
