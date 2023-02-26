@@ -1,31 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from 'react-native-ios-kit';
-import HomeScreen from './screens/HomeScreen';
-import ExampleScreen from './screens/ExampleScreen';
-
-const Stack = createNativeStackNavigator();
+import { theme, navTheme } from './styles/themes';
+import NavigationStack from './navigation';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <ThemeProvider>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="example"
-            component={ExampleScreen}
-            options={{
-              title: 'Example Screen',
-            }}
-          />
-        </Stack.Navigator>
+    <NavigationContainer theme={navTheme}>
+      <ThemeProvider theme={theme}>
+        <NavigationStack />
       </ThemeProvider>
     </NavigationContainer>
   );

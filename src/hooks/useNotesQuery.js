@@ -28,6 +28,7 @@ const useNotesQuery = () => {
   return {
     notesListLoading,
     notesList,
+    queryNotes,
   };
 };
 
