@@ -3,6 +3,7 @@ import HomeScreen from '../screens/home';
 import ExampleScreen from '../screens/ExampleScreen';
 import NoteScreen from '../screens/note';
 import Screens from './constants';
+import { HeaderBackButton } from '@react-navigation/elements';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,10 +20,11 @@ const NavigationStack = () => {
       <Stack.Screen
         name={Screens.ADDNOTE}
         component={NoteScreen}
-        options={{
-          title: '',
-          headerBackVisible: true,
-          headerShadowVisible: false
+        options={({ navigation }) => {
+          return {
+            title: '',
+            headerLeft: () => <HeaderBackButton labelVisible label='Home' onPress={() => navigation?.goBack()} />
+          }
         }}
       />
       <Stack.Screen

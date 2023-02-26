@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
   }, [navigation, queryNotes]);
 
   const onButtonPress = () => {
-    navigation.push(Screens.ADDNOTE);
+    navigation.navigate(Screens.ADDNOTE);
   };
 
   return (
