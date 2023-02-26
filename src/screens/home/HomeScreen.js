@@ -1,16 +1,16 @@
 import { withTheme } from 'react-native-ios-kit';
 import { View, FlatList } from 'react-native';
-import useNotesQuery from '../../hooks/useNotesQuery';
-import FloatingButton from '../../components/floating-button';
-import { Screens } from '../../navigation/constants';
 import { useEffect } from 'react';
+import FloatingButton from '../../components/floating-button';
+import Screens from '../../navigation/constants';
 import ListHeader from './ListHeader';
 import styles from './styles';
 import EmptyComponent from './EmptyComponent';
 import SkeletonPage from './SkeletonPage';
 import RenderItem from './RenderItem';
+import useNotesQuery from '../../hooks/useNotesQuery';
 
-const HomeScreen = ({ theme, route, navigation }) => {
+const HomeScreen = ({ navigation }) => {
   const { notesListLoading, notesList, queryNotes } = useNotesQuery();
   // Example to push a new screen
   // console.log('notesList::', notesList);
@@ -40,7 +40,7 @@ const HomeScreen = ({ theme, route, navigation }) => {
         refreshing={notesListLoading}
         renderItem={({ item }) => <RenderItem item={item} />}
       />
-      < FloatingButton onPress={onButtonPress} label={'Add Note'} />
+      <FloatingButton onPress={onButtonPress} label='Add Note' />
     </View >
   );
 };

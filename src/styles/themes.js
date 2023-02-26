@@ -17,4 +17,4 @@ const navTheme = {
   },
 };
 
-export default { theme, navTheme };
+export { theme, navTheme };

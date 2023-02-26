@@ -1,23 +1,24 @@
 import { useState, useLayoutEffect, useEffect, useCallback } from 'react';
 import {
+  Platform,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   View,
   Keyboard,
 } from 'react-native';
-import { withTheme, Spinner, Button } from 'react-native-ios-kit';
-import useNoteQuery from '../../hooks/useNoteQuery';
+import { withTheme, Spinner, Button, Callout } from 'react-native-ios-kit';
 import { useHeaderHeight } from '@react-navigation/elements';
 import NoteTextField from './NoteTextField';
 import styles from './styles';
 import DeleteButton from './DeleteButton';
+import useNoteQuery from '../../hooks/useNoteQuery';
 
-const AddNote = ({ theme, route, navigation }) => {
+const AddNote = ({ route, navigation }) => {
 
   const height = useHeaderHeight();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState();
-  const { createNote, note, getNote, updateNote, deleteNote, inFlight } = useNoteQuery();
+  const { createNote, note, getNote, updateNote, deleteNote, inFlight, error } = useNoteQuery();
 
   useEffect(() => {
     const noteId = route.params?.noteId;
@@ -38,20 +39,20 @@ const AddNote = ({ theme, route, navigation }) => {
       if (!note?.id) {
         await createNote({ title, body });
       } else {
-        // pass only parameters which have changed
-        const request = {};
-        if (note?.title != title) {
-          request.title = title;
-        }
-        if (note?.body != body) {
-          request.body = body;
-        }
         // Sending both variables because of bug on API 
+        // pass only parameters which have changed
+        // const request = {};
+        // if (note?.title !== title) {
+        //  request.title = title;
+        // }
+        // if (note?.body !== body) {
+        //  request.body = body;
+        // }
         await updateNote(note?.id, { title, body });
       }
       navigation?.goBack();
     };
-    const enabled = note?.title != title || note?.body != body;
+    const enabled = note?.title !== title || note?.body !== body;
     navigation.setOptions({
       headerRight: () => <Button disabled={!enabled} onPress={onPress}>Save</Button>,
 
@@ -72,19 +73,20 @@ const AddNote = ({ theme, route, navigation }) => {
         <View style={styles.inner}>
           <View style={[styles.inputContainer]}>
             {inFlight && <Spinner animating={inFlight} />}
+            {error && <Callout> {error} </Callout>}
             <NoteTextField
               // key="title"
-              placeholder={'Note Title'}
+              placeholder='Note Title'
               value={title}
               onValueChange={setTitle}
               inputStyle={styles.titleStyle}
             />
             <NoteTextField
               // key="body"
-              placeholder={'Start Typing'}
+              placeholder='Start Typing'
               value={body}
               onValueChange={setBody}
-              multiline={true}
+              multiline
               inputStyle={styles.bodyStyle}
             />
           </View>

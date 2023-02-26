@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
         fontWeight: 700,
         paddingBottom: 22,
     },
+    skeleton: {
+        paddingBottom: 20
+    }
 });
 
 export default styles;

@@ -1,4 +1,5 @@
-export const Screens = {
+const Screens = {
   HOME: 'Home',
   ADDNOTE: 'AddNote',
 };
+export default Screens;

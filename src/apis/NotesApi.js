@@ -40,7 +40,7 @@ class NotesApi {
       const response = await axios({
         method: 'get',
         baseURL: this.baseUrl,
-        url: 'notes' + '/' + noteId,
+        url: `notes/${noteId}`,
       });
 
       // Parse the data from the response
@@ -97,7 +97,7 @@ class NotesApi {
       const response = await axios({
         method: 'patch',
         baseURL: this.baseUrl,
-        url: 'notes' + '/' + noteId,
+        url: `notes/${noteId}`,
         data: note,
       });
 
@@ -126,7 +126,7 @@ class NotesApi {
       const response = await axios({
         method: 'delete',
         baseURL: this.baseUrl,
-        url: 'notes' + '/' + noteId,
+        url: `notes/${noteId}`,
         // data: note,
       });
 

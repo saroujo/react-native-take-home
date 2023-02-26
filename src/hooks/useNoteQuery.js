@@ -3,7 +3,7 @@ import NotesApi from '../apis/NotesApi';
 
 const useNoteQuery = () => {
   const notesApi = useMemo(() => new NotesApi(), []);
-  const [note, setNote] = useState(null);
+  const [_note, setNote] = useState(null);
   const [inFlight, setInFlight] = useState(false);
   const [error, setError] = useState(null);
 
@@ -85,7 +85,7 @@ const useNoteQuery = () => {
     updateNote,
     inFlight,
     error,
-    note,
+    note: _note,
     deleteNote,
   };
 };

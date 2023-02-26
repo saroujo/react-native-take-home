@@ -13,7 +13,7 @@ import {
   withTheme,
 } from 'react-native-ios-kit';
 
-const ExampleScreen = ({ theme, route, navigation }) => {
+const ExampleScreen = () => {
   return (
     <View>
       <Title1>Title 1</Title1>

@@ -1,7 +1,8 @@
 import { Title1 } from 'react-native-ios-kit';
 import { View } from 'react-native';
-import styles from './styles';
 import React from 'react';
+import styles from './styles';
+
 
 class ListHeader extends React.PureComponent {
     render() {
