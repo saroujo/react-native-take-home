@@ -6,7 +6,7 @@ import { Screens } from '../../navigation/constants';
 const RenderItem = ({ item }) => {
     const navigation = useNavigation();
     const onPress = () => {
-        navigation.push(Screens.ADDNOTE, { noteId: item?.id });
+        navigation.push(Screens.ADDNOTE, { noteId: item?.id, refresh: false });
     };
     return (
         <NotesCard

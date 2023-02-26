@@ -1,27 +1,28 @@
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useLayoutEffect, useEffect, useCallback } from 'react';
 import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   View,
-  StyleSheet,
   Keyboard,
 } from 'react-native';
-import { withTheme, TextField, Button } from 'react-native-ios-kit';
+import { withTheme, Spinner, Button } from 'react-native-ios-kit';
 import useNoteQuery from '../../hooks/useNoteQuery';
 import { useHeaderHeight } from '@react-navigation/elements';
-import { Colors } from 'react-native-ios-kit';
 import NoteTextField from './NoteTextField';
+import styles from './styles';
+import DeleteButton from './DeleteButton';
 
 const AddNote = ({ theme, route, navigation }) => {
   const height = useHeaderHeight();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState();
-  const { createNote, note, getNote, updateNote, deleteNote } = useNoteQuery();
+  const { createNote, note, getNote, updateNote, deleteNote, inFlight } = useNoteQuery();
 
   useEffect(() => {
     const noteId = route.params?.noteId;
     // console.log('NOTE ID::', noteId);
     if (noteId) {
+      console.log('getNote:::');
       getNote(noteId);
     }
   }, [route.params]);
@@ -38,15 +39,30 @@ const AddNote = ({ theme, route, navigation }) => {
       if (!note?.id) {
         await createNote({ title, body });
       } else {
+        // pass only parameters which have changed
+        const request = {};
+        if (note?.title != title) {
+          request.title = title;
+        }
+        if (note?.body != body) {
+          request.body = body;
+        }
+        // Sending both variables because of bug on API 
         await updateNote(note?.id, { title, body });
       }
       navigation?.goBack();
     };
+    const enabled = note?.title != title || note?.body != body;
     navigation.setOptions({
-      headerRight: () => <Button onPress={onPress}>Save</Button>,
+      headerRight: () => <Button disabled={!enabled} onPress={onPress}>Save</Button>,
 
     });
   }, [navigation, title, body, createNote, note]);
+
+  const onDelete = useCallback(async () => {
+    await deleteNote(note?.id);
+    navigation?.goBack();
+  }, [deleteNote, navigation]);
 
   return (
     <KeyboardAvoidingView
@@ -56,6 +72,7 @@ const AddNote = ({ theme, route, navigation }) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <View style={[styles.inputContainer]}>
+            {inFlight && <Spinner animating={inFlight} />}
             <NoteTextField
               key="title"
               placeholder={'Note Title'}
@@ -73,52 +90,11 @@ const AddNote = ({ theme, route, navigation }) => {
             />
           </View>
           {note?.id && (
-            <View style={styles.btnContainer}>
-              <Button
-                rounded
-                onPress={async () => {
-                  await deleteNote(note?.id);
-                  navigation?.goBack();
-                }}>
-                Delete Note
-              </Button>
-            </View>
+            <DeleteButton onPress={onDelete} />
           )}
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    // borderWidth: 0,
-  },
-  inner: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  inputContainer: {
-    padding: 18,
-  },
-  btnContainer: {
-    alignSelf: 'flex-end',
-    padding: 20,
-  },
-  titleStyle: {
-    fontSize: 22,
-    leading: 28,
-    tracking: 16,
-    fontWeight: '400',
-  },
-  bodyStyle: {
-    fontSize: 15,
-    leading: 20,
-    tracking: -16,
-    fontWeight: '400',
-  }
-
-});
 export default withTheme(AddNote);
