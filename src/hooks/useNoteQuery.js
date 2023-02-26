@@ -14,6 +14,7 @@ const useNoteQuery = () => {
       if (!res.success) {
         // Handle error
         console.error('listNotes() api error:', res.message);
+        setError(res.message);
         return;
       }
       setNote(res.data);
