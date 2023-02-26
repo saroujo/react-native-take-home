@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { HeaderBackButton } from '@react-navigation/elements';
 import HomeScreen from '../screens/home';
 import ExampleScreen from '../screens/ExampleScreen';
 import NoteScreen from '../screens/note';
 import Screens from './constants';
-import { HeaderBackButton } from '@react-navigation/elements';
 
 const Stack = createNativeStackNavigator();
 
