@@ -39,6 +39,7 @@ const HomeScreen = ({ navigation }) => {
         onRefresh={queryNotes}
         refreshing={notesListLoading}
         renderItem={({ item }) => <RenderItem item={item} />}
+        showsVerticalScrollIndicator={false}
       />
       <FloatingButton onPress={onButtonPress} label='Add Note' />
     </View >
