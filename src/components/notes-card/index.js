@@ -1,4 +1,4 @@
-import NotesCard from "./NoteCard";
-import SkeletonComponent from "./SkeletonCard";
+import NotesCard from './NoteCard';
+import SkeletonComponent from './SkeletonCard';
 
 export { NotesCard, SkeletonComponent };

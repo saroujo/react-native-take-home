@@ -15,7 +15,6 @@ const navTheme = {
   colors: {
     ...NavigationTheme.colors,
     background: Colors.white,
-
   },
 };
 

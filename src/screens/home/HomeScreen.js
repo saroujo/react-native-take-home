@@ -41,8 +41,8 @@ const HomeScreen = ({ navigation }) => {
         renderItem={({ item }) => <RenderItem item={item} />}
         showsVerticalScrollIndicator={false}
       />
-      <FloatingButton onPress={onButtonPress} label='Add Note' />
-    </View >
+      <FloatingButton onPress={onButtonPress} label="Add Note" />
+    </View>
   );
 };
 

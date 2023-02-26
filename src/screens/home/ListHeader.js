@@ -3,11 +3,14 @@ import { View } from 'react-native';
 import React from 'react';
 import styles from './styles';
 
-
 class ListHeader extends React.PureComponent {
-    render() {
-        return (<View ><Title1 style={styles.title}>Notes</Title1></View>);
-    }
+  render() {
+    return (
+      <View>
+        <Title1 style={styles.title}>Notes</Title1>
+      </View>
+    );
+  }
 }
 
 export default ListHeader;

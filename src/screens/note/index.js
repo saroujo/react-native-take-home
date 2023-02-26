@@ -1,3 +1,3 @@
-import NoteScreen from "./NoteScreen";
+import NoteScreen from './NoteScreen';
 
 export default NoteScreen;

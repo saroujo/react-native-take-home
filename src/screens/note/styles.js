@@ -1,11 +1,9 @@
-import {
-  StyleSheet,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     // borderWidth: 0,
   },
   inner: {
@@ -26,8 +24,7 @@ const styles = StyleSheet.create({
   bodyStyle: {
     fontSize: 15,
     fontWeight: '400',
-  }
-
+  },
 });
 
 export default styles;

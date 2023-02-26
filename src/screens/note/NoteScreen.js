@@ -14,11 +14,18 @@ import DeleteButton from './DeleteButton';
 import useNoteQuery from '../../hooks/useNoteQuery';
 
 const AddNote = ({ route, navigation }) => {
-
   const height = useHeaderHeight();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState();
-  const { createNote, note, getNote, updateNote, deleteNote, inFlight, error } = useNoteQuery();
+  const {
+    createNote,
+    note,
+    getNote,
+    updateNote,
+    deleteNote,
+    inFlight,
+    error,
+  } = useNoteQuery();
 
   useEffect(() => {
     const noteId = route.params?.noteId;
@@ -39,7 +46,7 @@ const AddNote = ({ route, navigation }) => {
       if (!note?.id) {
         await createNote({ title, body });
       } else {
-        // Sending both variables because of bug on API 
+        // Sending both variables because of bug on API
         // pass only parameters which have changed
         // const request = {};
         // if (note?.title !== title) {
@@ -54,8 +61,11 @@ const AddNote = ({ route, navigation }) => {
     };
     const enabled = note?.title !== title || note?.body !== body;
     navigation.setOptions({
-      headerRight: () => <Button disabled={!enabled} onPress={onPress}>Save</Button>,
-
+      headerRight: () => (
+        <Button disabled={!enabled} onPress={onPress}>
+          Save
+        </Button>
+      ),
     });
   }, [navigation, title, body, createNote, note]);
 
@@ -68,7 +78,8 @@ const AddNote = ({ route, navigation }) => {
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
-      keyboardVerticalOffset={height}>
+      keyboardVerticalOffset={height}
+    >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <View style={[styles.inputContainer]}>
@@ -76,23 +87,21 @@ const AddNote = ({ route, navigation }) => {
             {error && <Callout> {error} </Callout>}
             <NoteTextField
               // key="title"
-              placeholder='Note Title'
+              placeholder="Note Title"
               value={title}
               onValueChange={setTitle}
               inputStyle={styles.titleStyle}
             />
             <NoteTextField
               // key="body"
-              placeholder='Start Typing'
+              placeholder="Start Typing"
               value={body}
               onValueChange={setBody}
               multiline
               inputStyle={styles.bodyStyle}
             />
           </View>
-          {note?.id && (
-            <DeleteButton onPress={onDelete} />
-          )}
+          {note?.id && <DeleteButton onPress={onDelete} />}
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

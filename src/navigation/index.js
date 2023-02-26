@@ -24,8 +24,14 @@ const NavigationStack = () => {
           return {
             title: '',
             headerShadowVisible: false,
-            headerLeft: () => <HeaderBackButton labelVisible label='Home' onPress={() => navigation?.goBack()} />
-          }
+            headerLeft: () => (
+              <HeaderBackButton
+                labelVisible
+                label="Home"
+                onPress={() => navigation?.goBack()}
+              />
+            ),
+          };
         }}
       />
       <Stack.Screen
