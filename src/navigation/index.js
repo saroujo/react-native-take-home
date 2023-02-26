@@ -23,6 +23,7 @@ const NavigationStack = () => {
         options={({ navigation }) => {
           return {
             title: '',
+            headerShadowVisible: false,
             headerLeft: () => <HeaderBackButton labelVisible label='Home' onPress={() => navigation?.goBack()} />
           }
         }}
