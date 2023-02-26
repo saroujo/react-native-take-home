@@ -1,5 +1,5 @@
-import { Title1, withTheme, Button } from 'react-native-ios-kit';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { Button } from 'react-native-ios-kit';
+import { StyleSheet } from 'react-native';
 
 const FloatingButton = ({ onPress, label }) => {
   return (

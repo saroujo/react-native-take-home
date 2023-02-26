@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './../screens/HomeScreen';
 import ExampleScreen from './../screens/ExampleScreen';
-import AddNote from './../screens/AddNote';
+import NoteScreen from '../screens/note';
 import { Screens } from './constants';
 
 const Stack = createNativeStackNavigator();
@@ -18,12 +18,11 @@ const NavigationStack = () => {
       />
       <Stack.Screen
         name={Screens.ADDNOTE}
-        component={AddNote}
+        component={NoteScreen}
         options={{
           title: '',
           headerBackVisible: true,
-          // headerBackTitleVisible: false,
-          headerBackTitle: 'Home',
+          headerShadowVisible: false
         }}
       />
       <Stack.Screen

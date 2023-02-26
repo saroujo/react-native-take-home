@@ -1,22 +1,17 @@
-import { DefaultTheme } from 'react-native-ios-kit';
+import { Colors, DefaultTheme } from 'react-native-ios-kit';
 import { DefaultTheme as NavigationTheme } from '@react-navigation/native';
 
 const theme = {
   ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'rgb(255, 45, 85)',
-  },
+  dividerColor: Colors.white,
 };
 const navTheme = {
   ...NavigationTheme,
   colors: {
     ...NavigationTheme.colors,
-    background: "rgb(245,245,245)",
-    border:"rgb(245,245,245)"
-    // background: "red",
-    // primary: 'rgb(255, 45, 85)',
+    background: Colors.white,
+
   },
 };
 
-export default {theme, navTheme};
+export default { theme, navTheme };

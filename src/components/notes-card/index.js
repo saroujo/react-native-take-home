@@ -9,7 +9,7 @@ const NotesCard = ({ note, style, onPress }) => {
         styles.card,
         style,
       ]}>
-      <View style={{ flex: 1,  justifyContent: 'space-between' }}>
+      <View style={{ flex: 1, justifyContent: 'space-between' }}>
         <Headline>{note?.title}</Headline>
         <Body>{note?.body}</Body>
         <Footnote>{note?.date}</Footnote>
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 10,
     padding: 16,
-    shadowColor : 'rgba(0, 0, 0, 0.15)',
+    shadowColor: 'rgba(0, 0, 0, 0.15)',
     shadowOffset: {
       width: 0,
       height: 5,
