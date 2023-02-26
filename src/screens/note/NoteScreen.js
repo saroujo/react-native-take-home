@@ -13,6 +13,7 @@ import styles from './styles';
 import DeleteButton from './DeleteButton';
 
 const AddNote = ({ theme, route, navigation }) => {
+
   const height = useHeaderHeight();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState();
@@ -20,9 +21,7 @@ const AddNote = ({ theme, route, navigation }) => {
 
   useEffect(() => {
     const noteId = route.params?.noteId;
-    // console.log('NOTE ID::', noteId);
     if (noteId) {
-      console.log('getNote:::');
       getNote(noteId);
     }
   }, [route.params]);
