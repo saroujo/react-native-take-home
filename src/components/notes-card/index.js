@@ -25,16 +25,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 10,
     padding: 16,
-    shadowColor: 'rgba(0, 0, 0, 0.15)',
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
     borderColor: "rgba(0, 0, 0, 0.15)",
     borderWidth: StyleSheet.hairlineWidth,
-    shadowOpacity: 1,
-    shadowRadius: 4,
-    elevation: 5, // set the elevation for Android
+    elevation: 2, // set the elevation for Android
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.1
   },
 });
 
